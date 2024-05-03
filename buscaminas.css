@@ -1,0 +1,221 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    flex-direction: column;
+    align-content: center;
+flex-wrap: wrap;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+}
+
+h1 {
+    margin-top: 20px;
+    color: #333;
+}
+
+.container {
+    margin-top: 20px;
+    
+    align-items: center;
+}
+
+#board {
+   
+    justify-content: center;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#board td {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #999;
+    background-color: #47a113;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+#board td.revelada {
+    background-color: #ddd;
+    border-color: #bbb;
+}
+
+#board td.mina {
+    background-color: #ff9999;
+    color: #fff;
+}
+
+#board td.bandera {
+    background-color: rgb(207, 207, 42);
+    color: #fff;
+}
+
+#board td.uno {
+    background-color: rgb(45, 132, 203);
+    color: #fff;
+}
+
+
+#board td.uno1 {
+    background-color: rgb(76, 153, 215);
+    color: #fff;
+}
+
+
+#board td.uno2 {
+    background-color: rgb(45, 97, 139);
+    color: #fff;
+}
+
+#board td.dos {
+    background-color: rgb(201, 103, 213);
+    color: #fff;
+}
+
+#board td.dos1 {
+    background-color: rgb(144, 47, 157);
+    color: #fff;
+}
+
+#board td.dos2 {
+    background-color: rgb(99, 43, 104);
+    color: #fff;
+}
+
+#board td.tres {
+    background-color: rgb(197, 66, 22);
+    color: #fff;
+}
+
+#board td.tres1 {
+    background-color: rgb(140, 54, 25);
+    color: #fff;
+}
+
+#board td.tres2 {
+    background-color: rgb(139, 63, 38);
+    color: #fff;
+}
+
+#board td.cuatro {
+    background-color: rgb(52, 29, 155);
+    color: #fff;
+}
+
+#board td.cuatro1 {
+    background-color: rgb(79, 89, 185);
+    color: #fff;
+}
+
+#board td.cuatro2 {
+    background-color: rgb(19, 11, 131);
+    color: #fff;
+}
+
+#board td.cinco {
+    background-color: rgb(126, 14, 143);
+    color: #fff;
+}
+
+#board td.cinco1 {
+    background-color: rgb(186, 91, 201);
+    color: #fff;
+}
+
+#board td.cinco2 {
+    background-color: rgb(107, 21, 120);
+    color: #fff;
+}
+
+#board td.seis {
+    background-color: rgb(126, 176, 121);
+    color: #fff;
+}
+
+#board td.seis1 {
+    background-color: rgb(87, 110, 85);
+    color: #fff;
+}
+
+#board td.seis2 {
+    background-color: rgb(188, 211, 185);
+    color: #fff;
+}
+
+#board td.siete {
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+}
+
+#board td.siete1 {
+    background-color: rgb(32, 25, 25);
+    color: #fff;
+}
+
+#board td.siete2 {
+    background-color: rgb(35, 34, 34);
+    color: #fff;
+}
+
+#board td.ocho {
+    background-color: rgb(235, 140, 16);
+    color: #fff;
+}
+
+#board td.ocho1 {
+    background-color: rgb(143, 82, 3);
+    color: #fff;
+}
+
+#board td.ocho2 {
+    background-color: rgb(229, 156, 59);
+    color: #fff;
+}
+
+#board td.zero1 {
+    background-color: rgb(123, 96, 15);
+    color: #fff;
+}
+
+#board td.zero2{
+    background-color: rgb(104, 82, 17);
+    color: #fff;
+}
+#board td.zero3{
+    background-color: rgb(135, 100, 14);
+    color: #fff;
+}
+
+
+#board td:active {
+    background-color: #999;
+}
+
+#board td[data-flag="true"]::after {
+    content: "🚩";
+    display: block;
+}
+
+#board td[data-flag="false"]::after {
+    content: "";
+}
+
+#loginButton {
+    margin-top: 20px;
+}
+
+.bandera {
+    background-color: yellow;
+}
+
+.bandera:hover {
+    filter: brightness(1.5);
+    background-color: yellow;
+}

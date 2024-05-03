@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script>
+        function init(){
+            document.getElementById("loginForm").addEventListener('submit',function(event){
+            event.preventDefault();
+            let minas = document.getElementById('bombas').value;
+            let filas = document.getElementById('filas').value;
+            let columnas = document.getElementById('columnas').value;
+            let nick = document.getElementById('nick').value;
+            let mail = document.getElementById('mail').value;
+            let nacimiento = document.getElementById('nacimiento').value;
+            if(minas > filas*columnas){
+                alert("El número de minas no puede ser mayor que el número de casillas");
+                return;
+            }
+            if(!nick.match(/^[a-zA-Z]*[0-9]$/)){
+                alert("El nick debe contener solo letras y un número al final");
+                return;
+            }
+            if(!mail.match(/^[a-zA-Z0-9.]*@itb.cat$/)){
+                alert("El mail debe ser de la forma '[@itb.cat]'");
+                return;
+            }
+            if(nacimiento > "2006-03-22"){
+                alert("Debes ser mayor de edad para jugar");
+                return;
+            }
+            CreateCookie("usuario", document.getElementById('username').value);
+            CreateCookie("contraseña", document.getElementById('password').value);
+            CreateCookie("nacimiento", document.getElementById('nacimiento').value);
+            CreateCookie("nickname", document.getElementById('nick').value);
+            CreateCookie("correo", document.getElementById('mail').value);
+            CreateCookie("filas", document.getElementById('filas').value);
+            CreateCookie("columnas", document.getElementById('columnas').value);
+            CreateCookie("minas", document.getElementById('bombas').value);
+            window.opener.postMessage(document.cookie,"*");
+            window.close();
+        })
+        }
+        
+
+    function CreateCookie(name, value, days) {
+        var expires = "";
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+    </script>
+</head>
+<body onload="init()">
+    <div class="IS">
+        <h1>Iniciar Sesión</h1>
+        <form id="loginForm">
+            <label for="username">Nombre de usuario:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Contraseña:</label><br>
+            <input type="password" id="password" name="password"><br><br>
+            <label for="nacimiento">Fecha De Nacimiento:</label><br>
+            <input type="date" id="nacimiento" max="2023-12-31" name="nacimiento"><br><br>
+            <label for="nick">Nick:</label><br>
+            <input id="nick" name="nick" type="text" pattern="^[a-zA-Z]*[0-9]$"><br><br>
+            <label for="mail">Mail:</label><br>
+            <input id="mail" name="mail" type="email" pattern="^[a-zA-Z0-9.]*@itb.cat$"><br><br>
+            <label for="filas">Filas:</label><br>
+            <input id="filas" name="filas" type="text"><br><br>
+            <label for="columnas">Columnas:</label><br>
+            <input id="columnas" name="columnas" type="text"><br><br>
+            <label for="bombas">Bombas:</label><br>
+            <input id="bombas" name="bombas" type="text"><br><br>
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+    </div>
+</body>
+</html>
